@@ -22,7 +22,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   imageSection: {
-    padding: theme.spacing.xs,
+    padding: theme.spacing.sm,
     display: "flex",
     alignItems: "center",
     justifyContent: "center"

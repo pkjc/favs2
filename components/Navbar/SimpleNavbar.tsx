@@ -137,7 +137,7 @@ export function SimpleNavbar({ links }: SimpleNavbarProps) {
         {/* <Group spacing={5} className={classes.links}>
           {items}
         </Group> */}
-        <Button sx={{ height: 30 }}>Get your favs page</Button>
+        <Button size="xs">Get your favs page</Button>
       </Container>
     </Header>
   );

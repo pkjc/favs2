@@ -79,19 +79,24 @@ export function UserBioCard({
           >
             <IconShare size={16} />
           </ActionIcon> */}
-          <Button
+          {/* <Button
             leftIcon={<IconShare size={14} />}
             variant="outline"
             size="xs"
             gradient={{ from: "pink", to: "orange" }}
           >
             Share Profile
-          </Button>
+          </Button> */}
         </Group>
       </Group>
-      <Text align="left" size="md" weight={700} mt="xs">
-        {name}
+      <Group mt="xs" spacing="xs">
+      <Text align="left" size="md" weight={700} >
+        {name} 
       </Text>
+      <Button component="a" href="#" variant="subtle" size="xs" compact  rightIcon={<IconShare size={14} />}>
+        Share Profile
+      </Button>
+      </Group>
       <Group position="left" spacing="xs">
         <Text align="left" size="sm" color="dimmed">
           {job}
@@ -105,7 +110,7 @@ export function UserBioCard({
         I’m that actor in some of the movies you liked and some you didn’t.
         Sometimes I’m in pretty good shape, other times I’m not.
       </Text>
-      {/* <AddFav /> */}
+      <AddFav />
     </Card>
   );
 }
