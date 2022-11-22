@@ -131,13 +131,13 @@ export function SimpleNavbar({ links }: SimpleNavbarProps) {
             size="lg"
             weight="bold"
           >
-            favs.page
+            favs.
           </Text>
         </Group>
         {/* <Group spacing={5} className={classes.links}>
           {items}
         </Group> */}
-        <Button size="xs">Get your favs page</Button>
+        <Button size="xs" uppercase>Get your favs page</Button>
       </Container>
     </Header>
   );
