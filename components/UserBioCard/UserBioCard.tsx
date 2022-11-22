@@ -93,7 +93,13 @@ export function UserBioCard({
       <Text align="left" size="md" weight={700} >
         {name} 
       </Text>
-      <Button component="a" href="#" variant="subtle" size="xs" compact  rightIcon={<IconShare size={14} />}>
+      <Button 
+       styles={(theme) => ({
+        rightIcon: {
+          marginLeft: 5,
+        },
+      })} 
+       component="a" href="#" variant="subtle" size="xs" compact rightIcon={<IconShare size={13}/>}>
         Share Profile
       </Button>
       </Group>
