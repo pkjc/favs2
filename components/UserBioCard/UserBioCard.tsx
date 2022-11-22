@@ -112,7 +112,7 @@ export function UserBioCard({
         </Text>
         <Group spacing={10}>{items}</Group>
       </Group>
-      <Text align="left" size="md" mt="xs">
+      <Text align="left" size="sm" mt="xs">
         I’m that actor in some of the movies you liked and some you didn’t.
         Sometimes I’m in pretty good shape, other times I’m not.
       </Text>

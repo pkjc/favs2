@@ -12,8 +12,11 @@ import {
   IconGasStation,
   IconGauge,
   IconManualGearbox,
-  IconUsers
+  IconUsers,
+  IconMovie,
+  IconHeartPlus
 } from "@tabler/icons";
+import { ActionIcon } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -128,14 +131,14 @@ export function FavItem3({
           </div>
 
           <Button mr="sm" variant="default" size="xs" style={{ flex: 1 }}>
-            <span role="img" style={{ fontSize: 16 }}>
-              🎬
-            </span>
+              <ActionIcon radius="xs" variant="transparent">
+                <IconMovie size={18} />
+              </ActionIcon>
           </Button>
           <Button role="img" variant="default" size="xs" style={{ flex: 1 }}>
-            <span role="img" style={{ fontSize: 16 }}>
-              ❤️
-            </span>
+            <ActionIcon radius="xs" variant="transparent" color="red" >
+                <IconHeartPlus size={18} />
+            </ActionIcon>
           </Button>
         </Group>
       </Card.Section>
