@@ -12,7 +12,7 @@ export function FavsGrid({ favsList }) {
       ]}
     >
       {favsList.map((fav: any) => (
-        <FavItem3 {...fav} />
+        <FavItem3 {...fav} key={fav.title}/>
       ))}
     </SimpleGrid>
   );

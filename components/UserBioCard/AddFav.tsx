@@ -1,13 +1,36 @@
 import { Autocomplete, Button, Grid } from "@mantine/core";
 import { IconHeart } from "@tabler/icons";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function AddFav() {
-  const [value, setValue] = useState('');
-  const data =
-    value.trim().length > 0 && !value.includes('@')
-      ? ['gmail.com', 'outlook.com', 'yahoo.com'].map((provider) => `${value}@${provider}`)
-      : [];
+  const [searchQuery, setSearchQuery] = useState('');
+  const [options, setOptions] = useState([]);
+  
+  useEffect(() => {
+    async function getMoviesByKeyword(searchQuery : string) {
+      const TMDB_SEARCH_URL = `https://api.themoviedb.org/3/search/movie?&api_key=5f4fbd1cb92deca8b31627ac4d56951f&query=${searchQuery}`;
+      const resp = await fetch(TMDB_SEARCH_URL);
+      const searchResults = await resp.json();
+      return searchResults;
+    }
+    if(searchQuery && searchQuery.length > 3) {
+      console.log("Input changed. Calling API");
+
+      getMoviesByKeyword(searchQuery).then((movies) => {
+        const ops = movies.results.map((obj : any) => {
+          return {...obj, value: obj.title};
+        });
+        console.log("ops: ", ops);
+        setOptions(ops);
+      });
+
+    }
+  }, [searchQuery]);
+
+  function addFav(){
+    console.log("searchQuery: ", searchQuery);
+  }
+
   return (
     <Grid mt="md" gutter="sm" grow>
       <Grid.Col span={8}>
@@ -15,9 +38,9 @@ export function AddFav() {
           variant="default"
           autoFocus
           placeholder="What is your fav movie/show?"
-          data={data}
-          value={value}
-          onChange={setValue}
+          data={options}
+          value={searchQuery}
+          onChange={setSearchQuery}
         />
       </Grid.Col>
       <Grid.Col span={4}>
@@ -26,6 +49,7 @@ export function AddFav() {
           variant="gradient"
           fullWidth
           gradient={{ from: "pink", to: "orange" }}
+          onClick={addFav}
         >
           Add favorite
         </Button>
