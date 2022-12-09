@@ -130,16 +130,16 @@ export function FavItem3({
             </Text> */}
           </div>
 
-          <Button mr="sm" variant="default" size="xs" style={{ flex: 1 }}>
-              <ActionIcon radius="xs" variant="transparent">
-                <IconMovie size={18} />
+          {/* <Button mr="sm" variant="default" size="xs" style={{ flex: 1 }}> */}
+              <ActionIcon  variant="default" mr="sm" size="xs" style={{ flex: 1 }} p={"md"}>
+                <IconMovie size={16} />
               </ActionIcon>
-          </Button>
-          <Button role="img" variant="default" size="xs" style={{ flex: 1 }}>
-            <ActionIcon radius="xs" variant="transparent" color="red" >
-                <IconHeartPlus size={18} />
+          {/* </Button> */}
+          {/* <Button role="img" variant="default" size="xs" style={{ flex: 1 }}> */}
+            <ActionIcon variant="default" color="red" size="xs" style={{ flex: 1 }} p={"md"}>
+                <IconHeartPlus size={16} />
             </ActionIcon>
-          </Button>
+          {/* </Button> */}
         </Group>
       </Card.Section>
     </Card>

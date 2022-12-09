@@ -9,7 +9,7 @@ import {
   ActionIcon
 } from "@mantine/core";
 import { AddFav } from "./AddFav";
-import { IconPencil, IconShare } from "@tabler/icons";
+import { IconPencil, IconCornerUpRight } from "@tabler/icons";
 
 const useStyles = createStyles((theme) => ({
   avatar: {
@@ -96,10 +96,10 @@ export function UserBioCard({
       <Button 
        styles={(theme) => ({
         rightIcon: {
-          marginLeft: 5,
+          marginLeft: 4,
         },
       })} 
-       component="a" href="#" variant="subtle" size="xs" compact rightIcon={<IconShare size={13}/>}>
+       component="a" href="#" variant="outline" size="xs" compact rightIcon={<IconCornerUpRight size={16}/>}>
         Share Profile
       </Button>
       </Group>
@@ -107,10 +107,10 @@ export function UserBioCard({
         <Text align="left" size="sm" color="dimmed">
           {job}
         </Text>
-        <Text size="xs" color="dimmed">
+        {/* <Text size="xs" color="dimmed">
           |
         </Text>
-        <Group spacing={10}>{items}</Group>
+        <Group spacing={10}>{items}</Group> */}
       </Group>
       <Text align="left" size="sm" mt="xs">
         I’m that actor in some of the movies you liked and some you didn’t.
