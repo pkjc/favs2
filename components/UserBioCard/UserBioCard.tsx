@@ -100,7 +100,7 @@ export function UserBioCard({
         },
       })} 
        component="a" href="#" variant="outline" size="xs" compact rightIcon={<IconCornerUpRight size={16}/>}>
-        Share Profile
+        Share page
       </Button>
       </Group>
       <Group position="left" spacing="xs">
@@ -116,7 +116,7 @@ export function UserBioCard({
         I’m that actor in some of the movies you liked and some you didn’t.
         Sometimes I’m in pretty good shape, other times I’m not.
       </Text>
-      <AddFav />
+      {/* <AddFav /> */}
     </Card>
   );
 }

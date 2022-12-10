@@ -17,6 +17,7 @@ import {
   IconHeartPlus
 } from "@tabler/icons";
 import { ActionIcon } from '@mantine/core';
+import { getGenreById } from "../../utils/movieTvUtils";
 
 const useStyles = createStyles((theme) => ({
   card: {
@@ -68,7 +69,7 @@ export function FavItem3({
   image,
   genres,
   title,
-  releaseYear,
+  release_date,
   ratings,
   poster_path
 }: any) {
@@ -96,7 +97,7 @@ export function FavItem3({
             {title.length > 20 ? title.slice(0, 20) + "..." : title}
           </Text>
           <Text size="xs" color="dimmed">
-            1990 . Comedy, Thriller
+            {release_date ? release_date.slice(0, 4) : 2000} . {genres && genres.map((genreId : Number) => getGenreById(genreId))}
           </Text>
         </div>
         {/* <Badge variant="outline">Comedy</Badge>
@@ -131,7 +132,7 @@ export function FavItem3({
           </div>
 
           {/* <Button mr="sm" variant="default" size="xs" style={{ flex: 1 }}> */}
-              <ActionIcon  variant="default" mr="sm" size="xs" style={{ flex: 1 }} p={"md"}>
+              <ActionIcon  variant="default" mr="sm" size="xs" style={{ flex: 1 }} p={"md"} component="a" target="_blank" href="https://www.youtube.com/watch?v=5e382d1b4ca676001453826d">
                 <IconMovie size={16} />
               </ActionIcon>
           {/* </Button> */}
