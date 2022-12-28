@@ -19,18 +19,24 @@ import {
   sidebarUserCardProps
 } from "../../pages/api.js";
 import { useEffect, useState } from "react";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+} from '@tanstack/react-query'
 
 export function Welcome() {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    async function getMovies() {
-      const TMDB_POPULAR_MOVS = `https://api.themoviedb.org/3/discover/movie?api_key=5f4fbd1cb92deca8b31627ac4d56951f&language=en-US&sort_by=popularity.desc`;
-      const resp = await fetch(TMDB_POPULAR_MOVS);
-      const movies = await resp.json();
-      return movies;
-    }
-    getMovies().then((movies) => setMovies(movies.results));
-  }, []);
+  // Access the client
+  const queryClient = useQueryClient()
+  async function getMovies() {
+    const TMDB_POPULAR_MOVS = `https://api.themoviedb.org/3/discover/movie?api_key=5f4fbd1cb92deca8b31627ac4d56951f&language=en-US&sort_by=popularity.desc`;
+    const resp = await fetch(TMDB_POPULAR_MOVS);
+    const movies = await resp.json();
+    return movies;
+  }
+  // Queries
+  const getMoviesQuery = useQuery({ queryKey: ['movies'], queryFn: getMovies })
+  
   return (
     <>
       <SimpleNavbar {...simpleNavbarProps} />
@@ -64,7 +70,9 @@ export function Welcome() {
               data={tabsData}
               mb={16}
             /> */}
-            <FavsGrid favsList={movies} />
+            {getMoviesQuery.isLoading ? 'Loading...' : getMoviesQuery.isError
+              ? 'Error!' : getMoviesQuery.data
+              ? <FavsGrid favsList={getMoviesQuery.data.results} /> : null}
           </Grid.Col>
           {/* <Grid.Col md={4}>
             <Card p="md" withBorder>

@@ -3,6 +3,7 @@ import { FavItem2 } from "./FavItem2";
 import { FavItem3 } from "./FavItem3";
 
 export function FavsGrid({ favsList }) {
+  console.log("favsList: ", favsList);
   return (
     <SimpleGrid
       spacing="lg"
