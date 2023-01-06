@@ -45,7 +45,7 @@ const useStyles = createStyles((theme) => ({
   },
 
   section: {
-    padding: theme.spacing.sm,
+    padding: theme.spacing.xs,
     borderTop: `1px solid ${
       theme.colorScheme === "dark" ? theme.colors.dark[4] : theme.colors.gray[3]
     }`
@@ -133,12 +133,12 @@ export function FavItem3({
 
           {/* <Button mr="sm" variant="default" size="xs" style={{ flex: 1 }}> */}
               <ActionIcon  variant="default" mr="sm" size="xs" style={{ flex: 1 }} p={"md"} component="a" target="_blank" href="https://www.youtube.com/watch?v=5e382d1b4ca676001453826d">
-                <IconMovie size={16} />
+                <IconMovie size={18} />
               </ActionIcon>
           {/* </Button> */}
           {/* <Button role="img" variant="default" size="xs" style={{ flex: 1 }}> */}
             <ActionIcon variant="default" color="red" size="xs" style={{ flex: 1 }} p={"md"}>
-                <IconHeartPlus size={16} />
+                <IconHeartPlus size={18} />
             </ActionIcon>
           {/* </Button> */}
         </Group>
