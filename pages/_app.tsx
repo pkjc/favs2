@@ -11,6 +11,8 @@ import {
   Global
 } from "@mantine/core";
 import { NotificationsProvider } from "@mantine/notifications";
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { SessionContextProvider, Session } from '@supabase/auth-helpers-react'
 
 function MyGlobalStyles() {
   return (
@@ -35,8 +37,14 @@ function MyGlobalStyles() {
   );
 }
 
-export default function App(props: AppProps & { colorScheme: ColorScheme }) {
+export default function App(props: AppProps<{
+  initialSession: Session,
+  colorScheme: ColorScheme
+}>) {
+  // Create a new supabase browser client on every first render.
+  const [supabaseClient] = useState(() => createBrowserSupabaseClient());
   const { Component, pageProps } = props;
+  console.log("pageProps: ", pageProps);
   const [colorScheme, setColorScheme] = useState<ColorScheme>(
     props.colorScheme
   );
@@ -57,7 +65,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   return (
     <>
       <Head>
-        <title>Hello</title>
+        <title>favs.</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"

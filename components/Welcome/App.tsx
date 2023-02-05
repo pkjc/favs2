@@ -25,7 +25,8 @@ import {
   useQueryClient,
 } from '@tanstack/react-query'
 
-export function Welcome() {
+
+export function App() {
   // Access the client
   const queryClient = useQueryClient()
   async function getMovies() {

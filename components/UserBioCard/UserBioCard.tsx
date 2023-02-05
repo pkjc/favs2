@@ -10,6 +10,7 @@ import {
 } from "@mantine/core";
 import { AddFav } from "./AddFav";
 import { IconPencil, IconCornerUpRight } from "@tabler/icons";
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 
 const useStyles = createStyles((theme) => ({
   avatar: {
@@ -35,7 +36,8 @@ export function UserBioCard({
   stats
 }: UserBioCardProps) {
   const { classes, theme } = useStyles();
-
+  const session = useSession()
+  const supabase = useSupabaseClient()
   const items = stats.map((stat) => (
     <div key={stat.label}>
       <Text size="sm" color="dimmed">
@@ -116,7 +118,7 @@ export function UserBioCard({
         I’m that actor in some of the movies you liked and some you didn’t.
         Sometimes I’m in pretty good shape, other times I’m not.
       </Text>
-      {/* <AddFav /> */}
+      {session && <AddFav />}
     </Card>
   );
 }
